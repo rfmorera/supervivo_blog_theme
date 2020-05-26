@@ -109,17 +109,17 @@ body {
   padding: .3em;
 }
 
-.sidenav #sectionList li > a {
-  color: white;
-}
-
 .sidenav #sectionList li {
   font-family: "Bungee-Regular";
   font-weight: bold;
   font-stretch: expanded;
   font-size: 3.0rem;
-  /*line-height: 95px;*/
+  line-height: 10vh;
   letter-spacing: 15px;
+}
+
+.sidenav #sectionList li > a {
+  color: white;
 }
 
 .sidenav #sectionList li.disabled > a {
@@ -137,22 +137,41 @@ body {
   transition: all 1s;
 }
 
+#sidenav-link-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
 #sidenav-social-links {
-  display: inherit;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   list-style: none;
   padding: .3em;
+  position: absolute;
+  bottom: 3.5vh;
 }
 
 #sidenav-social-links > li {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 13px;
+  margin-left: 13px;
 }
 
 #sidenav-social-links img {
   height: 25px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .sidenav {
     padding-top: 20px;
   }
@@ -165,6 +184,12 @@ body {
   .sidenav #sectionList li {
     font-size: 2.6rem;
     letter-spacing: 1.0 rem;
+  }
+}
+
+@media screen and (min-height: 640px) {
+  #sidenav-social-links {
+    bottom: 8vh;
   }
 }
 
@@ -297,8 +322,8 @@ ul#fixed-nav {
 
 ul#fixed-nav li {
   float: right;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 ul#fixed-nav li a {
@@ -311,10 +336,17 @@ ul#fixed-nav li a {
 }
 
 .nav-social {
-  display: none;
   position: absolute;
   right: 0;
   margin-right: 2vw;
+}
+
+.nav-social > li {
+  display: none;
+}
+
+.nav-social > li:first-child {
+  display: inherit;
 }
 
 .nav-social img {
@@ -322,8 +354,15 @@ ul#fixed-nav li a {
 }
 
 @media screen and (min-width: 768px) {
-  .nav-social {
+  .nav-social > li {
     display: inherit;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  ul#fixed-nav li {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -563,12 +602,7 @@ div.comments {
 
 a.info-tesis:hover {
   cursor: pointer;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
-  -webkit-text-decoration-style: dotted;
-          text-decoration-style: dotted;
-  -webkit-text-decoration-color: inherit;
-          text-decoration-color: inherit;
+  text-decoration: none;
 }
 
 a.info-tesis > h2 {
